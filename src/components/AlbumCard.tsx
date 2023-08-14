@@ -19,6 +19,7 @@ interface AlbumCardProps {
 const AlbumCard: React.FC<AlbumCardProps> = ({ album, showLink = true }) => {
   const categoryColors: Record<string, string> = {
     "Rock 'n' Roll": "#FF4500",
+    Rock: "#FF4500",
     Blues: "#7bc6a4",
     Jazz: "#f78d54",
     Funk_Soul: "#f75d54",
@@ -29,6 +30,7 @@ const AlbumCard: React.FC<AlbumCardProps> = ({ album, showLink = true }) => {
     Hip_Hop: "#f7a154",
     Country: "#54f75d",
     Pop: "#f754a8",
+    Metal: "#c11d1d",
     BlackMetal: "#000000",
     "Dungeon synth": "#543C36",
     "World Music": "#54f7a8",

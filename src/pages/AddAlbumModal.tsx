@@ -58,7 +58,7 @@ const AddAlbumModal: FC<AddAlbumModalProps> = ({ onClose, onAdd }) => {
             onChange={(e) => setTitle(e.target.value)}
             required
           />
-          <label>Categories (comma-separated):</label>
+          <label>Categories (separated it ,):</label>
           <input
             type="text"
             value={categories}

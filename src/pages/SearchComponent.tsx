@@ -31,9 +31,11 @@ const SearchResultsPage: React.FC = () => {
             <h3 className="album-title">{album.title}</h3>
             <p className="album-description">{album.description}</p>
             <img className="album-image" src={album.imgurl} alt={album.title} />
-            <Link to={`/album/${album.id}`}>
-              <button className="view-album-button">View Album</button>
-            </Link>
+            <div className="button-album">
+              <Link to={`/album/${album.id}`}>
+                <button className="view-album-button">View Album</button>
+              </Link>
+            </div>
           </li>
         ))}
       </ul>

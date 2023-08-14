@@ -1,0 +1,60 @@
+.search-results-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.search-results-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.search-results-container p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.album-item {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.album-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.album-description {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.album-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.button-album {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto;
+}
+
+.view-album-button {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  background-color: var(--color-primary);
+  margin-top: 10px;
+}
+
+.view-album-button:hover {
+  background-color: var(--color-primary-hover);
+}

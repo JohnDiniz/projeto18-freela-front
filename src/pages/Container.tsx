@@ -6,6 +6,7 @@ import { Album } from "../context/types";
 import "../styles/Container.css";
 import "../styles/AlbumCard.css";
 import "../styles/Modal.css";
+import "../styles/SearchComponet.css";
 
 const Home = () => {
   const [showSoldAlbums, setShowSoldAlbums] = useState(false);

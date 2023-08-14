@@ -34,7 +34,7 @@ const AlbumCard: React.FC<AlbumCardProps> = ({ album, showLink = true }) => {
   return (
     <div className="album-card">
       <h2>{album.title}</h2>
-      {album.sold && <span className="sold-tag">Sold</span>}
+      {album.sold && <span className="sold-tag">Sold off</span>}
 
       <img src={album.imgurl} alt={album.title} />
       <div className="description-container">

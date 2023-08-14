@@ -4,9 +4,23 @@ import AlbumCard from "../components/AlbumCard";
 import "../styles/Container.css";
 import "../styles/AlbumCard.css";
 
+interface Album {
+  id: number;
+  sold: boolean;
+}
+
+interface Album {
+  id: number;
+  sold: boolean;
+  title: string;
+  description: string;
+  categories: string[];
+  price: number;
+}
+
 const Home = () => {
   const [showSoldAlbums, setShowSoldAlbums] = useState(false);
-  const [topalbums, setTopalbums] = useState([]);
+  const [topalbums, setTopalbums] = useState<Album[]>([]); // Provide the type here
 
   useEffect(() => {
     const fetchAlbums = async () => {

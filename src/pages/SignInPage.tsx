@@ -22,9 +22,9 @@ export default function SignInPage() {
         }
       );
 
-      const { id, token } = response.data;
+      const { id } = response.data;
       localStorage.setItem("userId", id);
-      console.log(id, token);
+      // console.log(id, token);
       navigate("/home");
     } catch (error) {
       setError("Invalid email or password");

@@ -45,7 +45,7 @@ const AlbumPage: React.FC = () => {
         <h3>{album.title}</h3>
         <p>Categories: {album.categories.join(", ")}</p>
         <p>Description: {album.description}</p>
-        <p>Sold: {album.sold ? "Yes" : "No"}</p>
+        <p>Sold off: {album.sold ? "Yes" : "No"}</p>
         <p>Price: ${album.price}</p>
       </div>
       <Link to="/home">Back to Home</Link>

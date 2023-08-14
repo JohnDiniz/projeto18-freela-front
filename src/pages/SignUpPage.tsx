@@ -12,7 +12,7 @@ export default function SignUpPage() {
   const navigate = useNavigate();
   const [imgUrl, setImageUrl] = useState("");
 
-  const handleSignUpSubmit = async (e) => {
+  const handleSignUpSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {

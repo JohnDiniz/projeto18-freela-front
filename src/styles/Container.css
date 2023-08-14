@@ -1,0 +1,15 @@
+.categories-container {
+  margin-top: 8px;
+}
+
+.container {
+  margin-top: 60px;
+}
+
+.category {
+  display: inline-block;
+  padding: 4px 8px;
+  margin-right: 6px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+}

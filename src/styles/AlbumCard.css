@@ -1,0 +1,113 @@
+.album-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  width: calc(33.33% - 20px);
+  margin: 10px;
+  padding: 10px;
+  background-color: var(--color-background);
+  vertical-align: top;
+  box-sizing: border-box;
+}
+
+.album-card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.album-card h2 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: var(--color-text);
+}
+
+.album-card img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-top: 12px;
+}
+
+.album-card .description {
+  height: 80px;
+  overflow: hidden;
+  margin-top: 10px;
+  color: var(--color-text);
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.album-card .description::-webkit-scrollbar {
+  display: none;
+}
+
+.album-card .description.expanded {
+  height: auto;
+  overflow: visible;
+}
+
+.categories-container {
+  margin-top: 12px;
+}
+
+.category {
+  display: inline-block;
+  padding: 4px 8px;
+  margin-right: 6px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+}
+
+.album-card a {
+  display: block;
+  margin-top: 10px;
+  text-decoration: none;
+  border: 1px solid var(--color-primary-hover);
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .album-card {
+    width: calc(50% - 20px);
+  }
+}
+
+.sold-tag {
+  background-color: #ff5252;
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.price {
+  font-size: 1rem;
+  color: #4caf50;
+  margin-top: 8px;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.filter-buttons button {
+  padding: 8px 16px;
+  margin: 0 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--color-primary);
+  color: white;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.filter-buttons button:hover {
+  background-color: var(--color-primary-hover);
+}

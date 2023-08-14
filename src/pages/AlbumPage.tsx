@@ -15,6 +15,8 @@ interface AlbumProps {
 const AlbumPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [album, setAlbum] = useState<AlbumProps | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchAlbum() {
@@ -23,16 +25,26 @@ const AlbumPage: React.FC = () => {
           `${import.meta.env.VITE_API_URL}/albums/${id}`
         );
         setAlbum(response.data);
+        setLoading(false);
       } catch (error) {
-        console.error("Error fetching album:", error);
+        setError("Error fetching album");
+        setLoading(false);
       }
     }
 
     fetchAlbum();
   }, [id]);
 
-  if (!album) {
+  if (loading) {
     return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  if (!album) {
+    return <div>No album found</div>;
   }
 
   return (

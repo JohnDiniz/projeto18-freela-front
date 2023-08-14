@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { TbVinyl } from "react-icons/tb";
@@ -7,8 +7,15 @@ import "../styles/Navbar.css";
 
 const Navbar: React.FC = () => {
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const { user } = useUserContext();
+
+  useEffect(() => {
+    if (user) {
+      setLoading(false);
+    }
+  }, [user]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,11 +46,15 @@ const Navbar: React.FC = () => {
           </button>
         </div>
       </form>
-      {user && (
-        <div className="profile-container">
-          <img src={user.imgurl} alt="Profile" className="profile-image" />
-          <span className="profile-name">Hello, {user.name}</span>
-        </div>
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        user && (
+          <div className="profile-container">
+            <img src={user.imgurl} alt="Profile" className="profile-image" />
+            <span className="profile-name">Hello, {user.name}</span>
+          </div>
+        )
       )}
     </nav>
   );

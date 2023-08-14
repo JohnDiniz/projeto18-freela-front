@@ -1,0 +1,47 @@
+.album-details-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.album-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.album-image-container {
+  margin-bottom: 20px;
+}
+
+.album-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.album-subtitle {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.album-category,
+.album-description,
+.album-sold,
+.album-price {
+  margin-bottom: 10px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.back-link:hover {
+  color: #0056b3;
+}

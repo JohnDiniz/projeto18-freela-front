@@ -10,8 +10,7 @@ export default function SignUpPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
-
-  // const [imageUrl, setImageUrl] = useState("");
+  const [imgUrl, setImageUrl] = useState("");
 
   const handleSignUpSubmit = async (e) => {
     e.preventDefault();
@@ -24,11 +23,15 @@ export default function SignUpPage() {
           email,
           password,
           confirmPassword,
+          imgUrl,
         }
       );
 
       if (response.status === 201) {
         console.log(response);
+        const { id, token } = response.data;
+        localStorage.setItem("userId", id);
+        console.log(id, token);
         navigate("/home");
       }
     } catch (error) {
@@ -74,13 +77,13 @@ export default function SignUpPage() {
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
-        {/* <Input
+        <Input
           placeholder="URL da imagem"
           data-test="image-url"
           type="text"
-          value={imageUrl}
+          value={imgUrl}
           onChange={(e) => setImageUrl(e.target.value)}
-        /> */}
+        />
         <SignUpButton data-test="sign-up-submit" type="submit">
           Cadastrar
         </SignUpButton>

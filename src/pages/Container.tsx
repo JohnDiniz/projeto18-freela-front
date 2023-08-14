@@ -9,10 +9,9 @@ const Home = () => {
   const [topalbums, setTopalbums] = useState([]);
 
   useEffect(() => {
-    // Fetch albums from the API
     const fetchAlbums = async () => {
       try {
-        const response = await fetch("http://localhost:5000/albums");
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/albums`);
         if (response.ok) {
           const albums = await response.json();
           setTopalbums(albums);
@@ -27,6 +26,10 @@ const Home = () => {
     fetchAlbums();
   }, [showSoldAlbums]);
 
+  const filteredAlbums = showSoldAlbums
+    ? topalbums.filter((album) => album.sold)
+    : topalbums;
+
   return (
     <div className="container">
       <div className="filter-buttons">
@@ -38,8 +41,10 @@ const Home = () => {
         </button>
       </div>
       <div className="albums-container">
-        {topalbums.length > 0 &&
-          topalbums.map((album) => <AlbumCard key={album.id} album={album} />)}
+        {filteredAlbums.length > 0 &&
+          filteredAlbums.map((album) => (
+            <AlbumCard key={album.id} album={album} />
+          ))}
       </div>
     </div>
   );

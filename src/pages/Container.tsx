@@ -1,26 +1,16 @@
 import { useEffect, useState } from "react";
 import AlbumCard from "../components/AlbumCard";
+import AddAlbumModal from "../pages/AddAlbumModal";
+import { Album } from "../context/types";
 
 import "../styles/Container.css";
 import "../styles/AlbumCard.css";
+import "../styles/Modal.css";
 
-interface Album {
-  id: number;
-  sold: boolean;
-}
-
-interface Album {
-  id: number;
-  sold: boolean;
-  title: string;
-  description: string;
-  categories: string[];
-  price: number;
-  imgurl: string;
-}
 const Home = () => {
   const [showSoldAlbums, setShowSoldAlbums] = useState(false);
   const [topalbums, setTopalbums] = useState<Album[]>([]);
+  const [showAddModal, setShowAddModal] = useState(false);
 
   useEffect(() => {
     const fetchAlbums = async () => {
@@ -44,6 +34,10 @@ const Home = () => {
     ? topalbums.filter((album) => album.sold)
     : topalbums;
 
+  const handleAddAlbum = (newAlbum: Album) => {
+    setTopalbums([...topalbums, newAlbum]);
+  };
+
   return (
     <div className="container">
       <div className="filter-buttons">
@@ -53,6 +47,7 @@ const Home = () => {
         <button onClick={() => setShowSoldAlbums(true)}>
           Show Sold Albums
         </button>
+        <button onClick={() => setShowAddModal(true)}>Add Album</button>
       </div>
       <div className="albums-container">
         {filteredAlbums.length > 0 &&
@@ -60,6 +55,12 @@ const Home = () => {
             <AlbumCard key={album.id} album={album} />
           ))}
       </div>
+      {showAddModal && (
+        <AddAlbumModal
+          onClose={() => setShowAddModal(false)}
+          onAdd={handleAddAlbum}
+        />
+      )}
     </div>
   );
 };

@@ -10,7 +10,7 @@ export default function SignUpPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
-  const [imgUrl, setImageUrl] = useState("");
+  const [imgurl, setImageUrl] = useState("");
 
   const handleSignUpSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,7 +23,7 @@ export default function SignUpPage() {
           email,
           password,
           confirmPassword,
-          imgUrl,
+          imgurl,
         }
       );
 
@@ -81,7 +81,7 @@ export default function SignUpPage() {
           placeholder="URL da imagem"
           data-test="image-url"
           type="text"
-          value={imgUrl}
+          value={imgurl}
           onChange={(e) => setImageUrl(e.target.value)}
         />
         <SignUpButton data-test="sign-up-submit" type="submit">

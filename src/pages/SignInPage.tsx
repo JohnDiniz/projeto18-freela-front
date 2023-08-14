@@ -24,7 +24,7 @@ export default function SignInPage() {
 
       const { id } = response.data;
       localStorage.setItem("userId", id);
-      // console.log(id, token);
+      console.log(id);
       navigate("/home");
     } catch (error) {
       setError("Invalid email or password");

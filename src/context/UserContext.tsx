@@ -5,6 +5,7 @@ interface User {
   name: string;
   email: string;
   createdAt: string;
+  imgurl: string;
 }
 
 interface UserContextType {
@@ -13,7 +14,6 @@ interface UserContextType {
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
-
 export const useUserContext = () => {
   const context = useContext(UserContext);
   if (!context) {
@@ -22,7 +22,11 @@ export const useUserContext = () => {
   return context;
 };
 
-export const UserProvider: React.FC = ({ children }) => {
+interface UserProviderProps {
+  children: React.ReactNode;
+}
+
+export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {

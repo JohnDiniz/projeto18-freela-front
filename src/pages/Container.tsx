@@ -16,11 +16,11 @@ interface Album {
   description: string;
   categories: string[];
   price: number;
+  imgurl: string;
 }
-
 const Home = () => {
   const [showSoldAlbums, setShowSoldAlbums] = useState(false);
-  const [topalbums, setTopalbums] = useState<Album[]>([]); // Provide the type here
+  const [topalbums, setTopalbums] = useState<Album[]>([]);
 
   useEffect(() => {
     const fetchAlbums = async () => {

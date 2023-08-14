@@ -6,7 +6,9 @@ interface album {
   title: string;
   description: string;
   categories: string[];
-  price: number; // Make sure to include the price property
+  price: number;
+  sold: boolean;
+  imgurl: string;
 }
 
 interface AlbumCardProps {
@@ -19,17 +21,17 @@ const AlbumCard: React.FC<AlbumCardProps> = ({ album, showLink = true }) => {
     "Rock 'n' Roll": "#FF4500",
     Blues: "#7bc6a4",
     Jazz: "#f78d54",
-    Funk_Soul: "#f75d54", // Use underscore (_) para separar palavras
+    Funk_Soul: "#f75d54",
     Folk: "#54a8f7",
     Reggae: "#8a54f7",
-    Clássico: "#f75d54", // Use caracteres acentuados
+    Clássico: "#f75d54",
     Eletrônica: "#7a54f7",
-    Hip_Hop: "#f7a154", // Use underscore (_) para separar palavras
+    Hip_Hop: "#f7a154",
     Country: "#54f75d",
     Pop: "#f754a8",
     BlackMetal: "#000000",
     "Dungeon synth": "#543C36",
-    "World Music": "#54f7a8", // Use aspas para chaves com espaços
+    "World Music": "#54f7a8",
   };
   return (
     <div className="album-card">
@@ -51,7 +53,7 @@ const AlbumCard: React.FC<AlbumCardProps> = ({ album, showLink = true }) => {
             #{category}
           </span>
         ))}
-        {typeof album.price === "number" && ( // Check if price is a number
+        {typeof album.price === "number" && (
           <p className="price">Price: $ {album.price.toFixed(2)}</p>
         )}
       </div>

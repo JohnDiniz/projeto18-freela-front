@@ -4,7 +4,6 @@ import { BiSearchAlt2 } from "react-icons/bi";
 import { TbVinyl } from "react-icons/tb";
 import { useUserContext } from "../context/UserContext";
 import "../styles/Navbar.css";
-// import profileImage from "../assets/h1n1xi5t99hb1.webp";
 
 const Navbar: React.FC = () => {
   const [search, setSearch] = useState("");
@@ -40,10 +39,12 @@ const Navbar: React.FC = () => {
           </button>
         </div>
       </form>
-      <div className="profile-container">
-        <img src={user.imgurl} alt="Profile" className="profile-image" />
-        <span className="profile-name">Hello, {user.name}</span>
-      </div>
+      {user && (
+        <div className="profile-container">
+          <img src={user.imgurl} alt="Profile" className="profile-image" />
+          <span className="profile-name">Hello, {user.name}</span>
+        </div>
+      )}
     </nav>
   );
 };

@@ -4,6 +4,7 @@ import SignInPage from "./pages/SignInPage";
 import SignUpPage from "./pages/SignUpPage";
 import AlbumPage from "./pages/AlbumPage";
 import { UserProvider } from "../src/context/UserContext";
+import SearchResultsPage from "./pages/SearchComponent";
 import "./styles/App.css";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/home" element={<Home />} />
           <Route path="/album/:id" element={<AlbumPage />} />
+          <Route path="/search" element={<SearchResultsPage />} />
           <Route path="/" element={<SignInPage />} />
         </Routes>
       </UserProvider>

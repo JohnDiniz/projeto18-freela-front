@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
+import "../styles/AlbumPage.css";
+
 interface AlbumProps {
   id: string;
   title: string;
@@ -48,19 +50,23 @@ const AlbumPage: React.FC = () => {
   }
 
   return (
-    <div>
-      <h2>Album Details</h2>
+    <div className="album-details-container">
+      <h1>Album Details</h1>
       <div>
-        <img src={album.imgurl} alt={album.title} />
+        <img className="album-image" src={album.imgurl} alt={album.title} />
       </div>
       <div>
-        <h3>{album.title}</h3>
-        <p>Categories: {album.categories.join(", ")}</p>
-        <p>Description: {album.description}</p>
-        <p>Sold off: {album.sold ? "Yes" : "No"}</p>
-        <p>Price: ${album.price}</p>
+        <h3 className="album-title">{album.title}</h3>
+        <p className="album-categories">
+          Categories: {album.categories.join(", ")}
+        </p>
+        <p className="album-description">Description: {album.description}</p>
+        <p className="album-sold">Sold off: {album.sold ? "Yes" : "No"}</p>
+        <p className="album-price">Price: ${album.price}</p>
       </div>
-      <Link to="/home">Back to Home</Link>
+      <Link className="back-to-home" to="/home">
+        Back to Home
+      </Link>
     </div>
   );
 };

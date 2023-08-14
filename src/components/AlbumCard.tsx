@@ -55,9 +55,8 @@ const AlbumCard: React.FC<AlbumCardProps> = ({ album, showLink = true }) => {
             #{category}
           </span>
         ))}
-        {typeof album.price === "number" && (
-          <p className="price">Price: $ {album.price.toFixed(2)}</p>
-        )}
+
+        <p className="price">Price: $ {album.price}</p>
       </div>
       {showLink && <Link to={`/album/${album.id}`}>Details</Link>}
     </div>

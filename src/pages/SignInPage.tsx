@@ -3,17 +3,33 @@ import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/icon.svg";
 import axios from "axios";
+
 export default function SignInPage() {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false); // Add loading state
+
+  const validateForm = () => {
+    if (!email || !password) {
+      setError("Please provide both email and password");
+      return false;
+    }
+    setError("");
+    return true;
+  };
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!validateForm()) {
+      return;
+    }
+
     try {
+      setIsLoading(true);
       const response = await axios.post(
         `${import.meta.env.VITE_API_URL}/signin`,
         {
@@ -28,6 +44,8 @@ export default function SignInPage() {
       navigate("/home");
     } catch (error) {
       setError("Invalid email or password");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -53,8 +71,12 @@ export default function SignInPage() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <StyledButton data-test="sign-in-submit" type="submit">
-          Login
+        <StyledButton
+          data-test="sign-in-submit"
+          type="submit"
+          disabled={isLoading}
+        >
+          {isLoading ? "Logging in..." : "Login"}
         </StyledButton>
         {error && <ErrorMessage>{error}</ErrorMessage>}
       </form>

@@ -30,8 +30,6 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    // You might want to fetch the user data from your API here, based on the token or some other mechanism
-    // For this example, let's assume you have a function to fetch user data
     const fetchUserData = async () => {
       try {
         const response = await fetch(
@@ -41,13 +39,15 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ id: localStorage.getItem("userId") }), // Replace with your logic to get the user ID
+            body: JSON.stringify({ id: localStorage.getItem("userId") }),
           }
         );
 
         if (response.ok) {
           const userData = await response.json();
           setUser(userData);
+        } else {
+          console.error("Error fetching user data:", response.status);
         }
       } catch (error) {
         console.error("Error fetching user data:", error);
